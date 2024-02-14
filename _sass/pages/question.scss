@@ -1,0 +1,398 @@
+.page-question{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	background: $clr-background;
+
+	.navbar{
+		order: 0;
+		position: absolute;
+		z-index: 2;
+
+		height: 12.5vh;
+		width: 100%;
+
+		padding: 1.5rem 1rem 1rem 1rem;
+
+		.emoji-container{
+			display: inline-block;
+
+			margin-right: 0.75rem;
+
+			vertical-align: top;
+
+			.emoji{
+				width: 40px;
+
+				&.human{
+					position: absolute;
+					animation: blink-animation-human steps(1, start) 1s infinite;
+					animation-delay: 1s;
+				}
+
+				&.robot{
+					visibility: hidden;
+					animation: blink-animation-robot steps(1, start) 1s infinite;
+					animation-delay: 1s;
+				}
+			}
+
+			&:active{
+				background: rgba(62, 78, 134,0.1);
+			}
+		}
+
+		.text-container{
+			display: inline-block;
+
+			.title{
+				display: block;
+
+				color: white;
+				font-weight: bold;
+
+				span{
+					font-size: 0.875rem;
+				}
+			}
+
+			.question-title{
+				display: block;
+
+				font-size: 0.8rem;
+				font-weight: bold;
+
+				&.text{
+					color: $clr-text-secondary;
+				}
+
+				&.image{
+					color: white;
+				}
+			}
+		}
+	}
+
+	.section-content{
+		order: 0;
+
+		position: relative;
+		top: 0;
+		z-index: 1;
+
+		width: 100%;
+
+		@include respond-at($bp-large){
+			position: relative;
+			width: 50%;
+			height: 100vh;
+		}
+
+		.image-container{
+			width: 100%;
+			height: 100%;
+
+			overflow: hidden;
+
+			@include respond-at($bp-large){
+				position: absolute;
+				right: 0;
+
+				width: auto;
+				height: auto;
+
+				margin: 10%;
+				padding: 2.5%;
+
+				background-color: white;
+
+				border-radius: 0.75rem;
+				box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+
+				@include respond-at($bp-xl){
+					margin: 15%;
+				}
+			}
+
+			.image{
+				width: 100%;
+				height: 100%;
+
+				overflow: hidden;
+
+				@include respond-at($bp-large){
+					height: auto;
+					max-height: 560px;
+				}
+			}
+
+			img{
+				display: block;
+
+				margin: auto;
+
+				width: 100%;
+				min-height: 100%;
+
+				object-fit: cover;
+
+				@include respond-at($bp-large){
+					margin: 0;
+					
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+
+		.text-container{
+			position: relative;
+
+			height: 100vh;
+
+			margin-top: 12.5vh;
+			padding: 1rem 1.5rem 45vh 1.5rem;
+
+			text-align: left;
+
+			overflow-y: scroll;
+
+			@include respond-at($bp-large){
+				position: relative;
+
+				height: auto;
+				max-height: 35rem;
+
+				padding: 2rem;
+				margin: 10%;
+
+				background: white;
+
+				border-radius: 0.75rem;
+				box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+
+				@include respond-at($bp-xl){
+					margin: 15%;
+				}
+			}
+
+			.text-title{
+				font-size: 1.5rem;
+				font-weight: bolder;
+
+				margin-bottom: 1rem;
+
+				@include respond-at($bp-large){
+					font-size: 1.5rem;
+
+					margin-bottom: 0.75rem;
+				}
+
+				@include respond-at($bp-xl-2){
+					font-size: 2rem;
+
+					margin-bottom: 0.75rem;
+				}
+
+				span{
+
+				}
+			}
+
+			.text-content{
+				font-size: 1rem;
+				line-height: 1.8rem;
+
+				overflow-x: hidden;
+			}
+		}
+	}
+
+	.section-question{
+		order: 1;
+
+		position: absolute;
+		bottom: 0;
+		z-index: 2;
+
+		width: 100%;
+
+		transition: 0s;
+
+		@include respond-at($bp-large){
+			position: relative;
+
+			width: 50%;
+			height: 100vh;
+
+			background: none;
+
+			border-radius: 0;
+			box-shadow: none;
+
+			text-align: center;
+		}
+
+		.content{
+			margin: 0 5% 7.5% 5%;
+
+			text-align: center;
+
+			background-color: white;
+
+			border-radius: 1rem;
+			box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+
+			@include respond-at($bp-large){
+				display: inline-block;
+
+				margin: 30% 5% 0 0;
+
+				background: none;
+
+				border-radius: 0;
+				box-shadow: none;
+
+				@include respond-at($bp-xl-2){
+					margin: 32.5% 15% 0 0;
+				}
+			}
+
+			.question-title{
+				display: inline-block;
+				width: 100%;
+
+				font-size: 1rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: $clr-text-secondary;
+			}
+
+			.question-text{
+				display: inline-block;
+				width: 100%;
+
+				margin-top: 0.5rem;
+				padding: 0 1.5rem;
+
+				font-size: 2rem;
+				font-weight: bold;
+				color: $clr-text-primary;
+
+				@include respond-at($bp-large){
+					font-size: 2.5rem;
+				}
+
+			}
+		}
+
+		.question{
+			margin-top: 1.25rem;
+
+			@include respond-at($bp-large){
+				margin-top: 3rem;
+			}
+
+			text-align: center;
+		}
+
+		.answer-container{
+			display: inline-block;
+
+			position: relative;
+
+			width: 49%;
+
+			padding: 0.75rem 1.5rem;
+
+			border-radius: 0.75rem 0 0 0.75rem;
+
+			transition: 0.3s;
+
+			font-size: 2.5rem;
+
+			@include respond-at($bp-large){
+				width: auto;
+
+				margin-right: 0.5rem;
+				padding: 0.75rem 1.5rem;
+
+				border: 1px solid #c9c9c9;
+				border-radius: 0.75rem;
+
+				font-size: 0.875rem;
+
+				@include respond-at($bp-xl){
+					margin-right: 1.5rem;
+					padding: 1rem 2rem;
+
+					font-size: 1rem;
+				}
+			}
+
+			&:hover{
+				background: rgba(201, 201, 201, 0.3);
+			}
+
+			input[type=radio]{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+
+				width: 100%;
+				height: 100%;
+
+				cursor: pointer;
+
+				opacity: 0;
+
+				transition: 0.3s;
+
+				&:checked ~ .answer{
+					border: 2px solid $clr-text-secondary;
+				}
+			}
+
+			.answer{
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				width: 100%;
+				height: 100%;
+
+				border-radius: 0.75rem;
+			}
+
+			&:last-child{
+				margin-right: 0;
+
+				border-radius: 0 0.75rem 0.75rem 0;
+
+				@include respond-at($bp-large){
+					border-radius: 0.75rem;
+				}
+			}
+		}
+	}
+}
+
+@keyframes blink-animation-human{
+	0% {visibility: visible;}
+	50% {visibility: hidden;}
+	100% {visibility: visible;}
+}
+
+@keyframes blink-animation-robot{
+	0% {visibility: hidden;}
+	50% {visibility: visible;}
+	100% {visibility: hidden;}
+}

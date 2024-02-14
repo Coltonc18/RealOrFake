@@ -1,0 +1,416 @@
+.page-results{
+	position: relative;
+	min-width: 100%;
+	min-height: 100%;
+
+	background: $clr-background;
+
+	.section-total{
+		.result{
+			&.total{
+
+				h3.heading-caption{
+					text-align: center;
+
+					@include respond-at($bp-large){
+						text-align: left;
+					}
+				}
+
+				.text-container{
+					width: 100%;
+
+					margin-top: 5%;
+
+					h1{
+						margin-bottom: 0.875rem;
+					}
+				}
+
+				.details-container{
+					display: flex;
+
+					flex-flow: wrap;
+
+					margin-top: 1.5rem;
+
+					@include respond-at($bp-large){
+						margin-top: 3rem;
+					}
+
+					h3.heading-caption{
+
+						@include respond-at($bp-large){
+							margin-bottom: 1.5rem;
+						}
+					}
+
+					.results-container{
+						display: inline-block;
+
+						width: 100%;
+
+						flex: auto;
+
+						margin-bottom: 2rem;
+
+						@include respond-at($bp-large){
+							width: auto;
+
+							flex: none;
+
+							margin-right: 5%;
+						}
+
+						.badge{
+							display: inline-block;
+
+							width: 100%;
+							height: 7rem;
+
+							color: white;
+							line-height: 7rem;
+							text-align: center;
+
+							background: $clr-accent;
+
+							border-radius: 0.5rem;
+
+							@include respond-at($bp-large){
+								width: 7rem;
+							}
+
+							span{
+								font-size: 2.5rem;
+								font-weight: bold;
+							}
+						}
+					}
+
+					.overview-container{
+						display: inline-block;
+
+						flex: auto;
+
+						padding-top: 2rem;
+
+						text-align: center;
+
+						@include respond-at($bp-large){
+							padding-top: 0;
+
+							text-align: left;
+						}
+
+						.desc{
+							display: flex;
+
+							flex-flow: wrap;
+
+							.desc-item{
+								display: flex;
+
+								flex: auto;
+
+								width: 30%;
+								height: 7rem;
+
+								flex-flow: column;
+								align-items: center;
+								justify-content: center;
+
+								margin: 0 0.75rem 0.75rem 0.75rem;
+
+								text-align: center;
+
+								@include respond-at($bp-large){
+									flex: none;
+
+									width: auto;
+
+									margin: 0 3rem 0 0;
+								}
+
+								.text{
+									font-size: 2.5rem;
+									font-weight: bold;
+									color: $clr-text-primary;
+
+									.percentage{
+										margin-right: -0.875rem;
+
+										font-size: 1.5rem;
+										color: $clr-text-secondary;
+									}
+								}
+
+								.label{
+									font-size: 0.875rem;
+									color: $clr-text-primary;
+
+									@include respond-at($bp-large){
+										font-size: 1rem;
+									}
+								}
+							}
+						}
+					}
+
+					.share-container{
+						width: 100%;
+
+						margin-top: 2rem;
+
+						@include respond-at($bp-large){
+							width: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.section-breakdown{
+		max-width: 100vw;
+
+		.result{
+			&.breakdown{
+				@include respond-at($bp-large){
+					display: inline-flex;
+					flex-flow: row nowrap;
+					justify-content: flex-start;
+					align-content: flex-start;
+
+					max-width: 100%;
+
+					margin-left: -2rem;
+					padding: 1rem;
+
+					overflow-x: scroll;
+				}
+
+				.result-item{
+					flex: auto;
+					position: relative;
+
+					width: 100%;
+
+					margin-bottom: 1rem;
+
+					background-color: white;
+
+					border-radius: 0.75rem;
+					box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+
+					.indicator{
+						position: absolute;
+
+						top: -0.5rem;
+						right: -0.5rem;
+
+						width: 2rem;
+						height: 2rem;
+
+						background: lightgrey;
+
+						border-radius: 0.25rem;
+
+						&.correct{
+							background: $clr-correct;
+						}
+
+						&.wrong{
+							background: $clr-wrong;
+						}
+					}
+
+					@include respond-at($bp-large){
+						margin: 1rem;
+
+						border-radius: 0.5rem;
+
+						&.image{
+							min-width: 20rem;
+						}
+
+						&.text{
+							min-width: 24rem;
+						}
+					}
+
+					.image-container{
+						margin-bottom: 1rem;
+
+						border-radius: 0.75rem 0.75rem 0 0;
+
+						overflow: hidden;
+
+						@include respond-at($bp-large){
+
+							border-radius: 0.5rem 0.5rem 0 0;
+
+						}
+
+						img{
+							width: 100%;
+							min-height: 100%;
+						}
+					}
+
+					.text-container{
+						text-align: left;
+
+						padding: 1rem 1rem 0 1rem;
+
+						@include respond-at($bp-large){
+							padding: 1.5rem 1.5rem 0 1.5rem;
+						}
+
+						.text-title{
+							max-height: 6rem;
+
+							margin-bottom: 0.5rem;
+
+							font-size: 1.2rem;
+							font-weight: bolder;
+							line-height: 2rem;
+
+							overflow: hidden;
+
+							@include respond-at($bp-large){
+								max-height: 7.2rem;
+
+								margin-bottom: 1rem;
+
+								font-size: 1.5rem;
+								line-height: 2.4rem;
+							}
+
+							span{
+								
+							}
+						}
+
+						.text-content{
+							max-height: 5rem;
+
+							margin-bottom: 0.5rem;
+
+							line-height: 1.5rem;
+
+							overflow: hidden;
+
+							@include respond-at($bp-small-3){
+								max-height: 7rem;
+							}
+
+							@include respond-at($bp-med-2){
+								max-height: 8rem;
+							}
+
+							@include respond-at($bp-large){
+								max-height: 9.5rem;
+
+								margin-bottom: 1rem;
+							}
+
+							@include respond-at($bp-xl){
+								max-height: 10.5rem;
+
+								margin-bottom: 1rem;
+							}
+
+							p{}
+						}
+					}
+
+					.desc{
+						text-align: left;
+
+						padding: 0 0.5rem 0.5rem 0.5rem;
+
+						@include respond-at($bp-large){
+							padding: 0 1rem 1rem 1rem;
+						}
+
+						.desc-item{
+							display: block;
+
+							margin: 0.4rem 0.6rem;
+
+							text-align: left;
+
+							text-overflow: ellipsis;
+							overflow: hidden;
+
+							img{
+								width: 1.25rem;
+
+								margin-right: 0.25rem;
+
+								@include respond-at($bp-large){
+									width: 1.5rem;
+								}
+							}
+
+							span, a{
+								font-size: 0.875rem;
+								line-height: 1.25rem;
+								vertical-align: middle;
+
+								@include respond-at($bp-large){
+									font-size: 1rem;
+									line-height: 1.5rem
+								}
+							}
+
+							a{
+								color: $clr-accent;
+								text-decoration: underline;
+							}
+
+							&.type{
+								display: flex;
+
+								align-items: center;
+								align-content: center;
+
+								margin: 1rem 0 1rem 0.4rem;
+
+								.emoji-container{
+									display: inline-flex;
+
+									align-items: center;
+									align-content: center;
+									justify-content: center;
+
+									width: 2rem;
+									height: 2rem;
+
+									margin-right: 0.75rem;
+
+									background: #f6f6f6;
+									border-radius: 50%;
+
+									@include respond-at($bp-large){
+										width: 3rem;
+										height: 3rem;
+									}
+
+									img{
+										margin: 0;
+									}
+								}
+
+								span{
+									font-size: 1rem;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+}
