@@ -1,15 +1,15 @@
 // Define an array to hold the questions
 const questions = [
     { type: 'image', content: 'images/question1.jpg', correctAnswer: 'real' },
-    { type: 'image', content: 'images/question2.jpg', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/yVEhrIMc-ps', correctAnswer: 'fake' },
-    { type: 'image', content: 'images/question4.jpg', correctAnswer: 'real' },
-    { type: 'image', content: 'images/question5.jpg', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'fake' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'fake' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' }
+    { type: 'image', content: 'images/question2.jpg', correctAnswer: 'fake' },
+    { type: 'video', content: 'https://www.youtube.com/embed/CArR7dIrZII', correctAnswer: 'fake' },
+    { type: 'image', content: 'images/question4.jpg', correctAnswer: 'fake' },
+    { type: 'image', content: 'images/question5.jpg', correctAnswer: 'fake' },
+    { type: 'video', content: 'https://www.youtube.com/embed/4_YmiTZgNKI', correctAnswer: 'real' },
+    { type: 'video', content: 'https://www.youtube.com/embed/xfMWbTliJmg', correctAnswer: 'fake' },
+    { type: 'image', content: 'images/question8.jpg', correctAnswer: 'real' },
+    { type: 'video', content: 'https://www.youtube.com/embed/eDZgGrXpZgc', correctAnswer: 'real' },
+    { type: 'video', content: 'https://www.youtube.com/embed/6wnSKUBnfQE', correctAnswer: 'real' },
 ];
 
 let currentQuestionIndex = 0;
@@ -47,7 +47,9 @@ function displayQuestion(index) {
         questionElement.innerHTML = `
             <h2>Question ${index + 1}</h2>
             <p> Is the following video real or fake? </p>
+
             <iframe width="560" height="315" src="${questionData.content}" frameborder="0" allowfullscreen></iframe>
+
             <div class="options">
                 <button id="real-btn" class="answer-btn">Real</button>
                 <button id="fake-btn" class="answer-btn">Fake</button>
