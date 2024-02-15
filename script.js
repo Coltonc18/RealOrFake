@@ -2,13 +2,13 @@
 const questions = [
     { type: 'image', content: 'images/question1.jpg', correctAnswer: 'real' },
     { type: 'image', content: 'images/question2.jpg', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/yVEhrIMc-ps', correctAnswer: 'robot' },
-    { type: 'image', content: 'images/question4.jpg', correctAnswer: 'robot' },
+    { type: 'video', content: 'https://www.youtube.com/embed/yVEhrIMc-ps', correctAnswer: 'fake' },
+    { type: 'image', content: 'images/question4.jpg', correctAnswer: 'real' },
     { type: 'image', content: 'images/question5.jpg', correctAnswer: 'real' },
     { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'robot' },
+    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'fake' },
     { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' },
-    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'robot' },
+    { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'fake' },
     { type: 'video', content: 'https://www.youtube.com/embed/VIDEO_ID_HERE', correctAnswer: 'real' }
 ];
 
@@ -27,43 +27,36 @@ function displayQuestion(index) {
     const questionElement = document.createElement('div');
     questionElement.classList.add('question');
 
-    if (questionData.type === 'intro') {
-        // Display introduction text
-        questionElement.innerHTML = `
-            <h2>Instructions</h2>
-            <p>${questionData.content}</p>
-            <button id="next-btn" class="answer-btn">Next</button>
-        `;
-        const nextButton = questionElement.querySelector('#next-btn');
-        nextButton.addEventListener('click', showNextQuestion);
-    } else if (questionData.type === 'image') {
+    if (questionData.type === 'image') {
         // Display image question
         questionElement.innerHTML = `
             <h2>Question ${index + 1}</h2>
+            <p> Is this a real image? </p>
             <img src="${questionData.content}" alt="Question Image">
             <div class="options">
                 <button id="real-btn" class="answer-btn">Real</button>
-                <button id="robot-btn" class="answer-btn">Robot</button>
+                <button id="fake-btn" class="answer-btn">Fake</button>
             </div>
         `;
         const realButton = questionElement.querySelector('#real-btn');
-        const robotButton = questionElement.querySelector('#robot-btn');
+        const fakeButton = questionElement.querySelector('#fake-btn');
         realButton.addEventListener('click', () => handleAnswer('real'));
-        robotButton.addEventListener('click', () => handleAnswer('robot'));
+        fakeButton.addEventListener('click', () => handleAnswer('fake'));
     } else if (questionData.type === 'video') {
         // Display video question
         questionElement.innerHTML = `
             <h2>Question ${index + 1}</h2>
+            <p> Is the following video real or fake? </p>
             <iframe width="560" height="315" src="${questionData.content}" frameborder="0" allowfullscreen></iframe>
             <div class="options">
                 <button id="real-btn" class="answer-btn">Real</button>
-                <button id="robot-btn" class="answer-btn">Robot</button>
+                <button id="fake-btn" class="answer-btn">Fake</button>
             </div>
         `;
         const realButton = questionElement.querySelector('#real-btn');
-        const robotButton = questionElement.querySelector('#robot-btn');
+        const fakeButton = questionElement.querySelector('#fake-btn');
         realButton.addEventListener('click', () => handleAnswer('real'));
-        robotButton.addEventListener('click', () => handleAnswer('robot'));
+        fakeButton.addEventListener('click', () => handleAnswer('fake'));
     }
 
     questionContainer.appendChild(questionElement);
@@ -97,7 +90,7 @@ function handleAnswer(selectedAnswer) {
 function displayScore() {
     // Display the score to the user
     const scoreContainer = document.getElementById('score-container');
-    scoreContainer.textContent = `Your score: ${score} out of ${questions.length}`;
+    scoreContainer.textContent = `Congrats! You've completed the quiz. Your score: ${score} out of ${questions.length}`;
     scoreContainer.style.display = 'block';
 }
 
